@@ -26,7 +26,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //dd($request->all());
+        $product = Product::create($request->all());
+        return response($product,201);
+
     }
 
     /**
@@ -49,7 +53,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $input = $request->all();
+        $product->fill($input)->save();
+        return response($product,200);
+
+
     }
 
     /**
@@ -60,6 +68,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return response($product,200);
+
     }
 }
