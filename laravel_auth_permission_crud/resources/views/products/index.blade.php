@@ -7,7 +7,7 @@
             <div class="pull-left">
                 <h2>Products</h2>
             </div>
-            <div class="pull-right">
+            <div class="float-right">
 
                 @can('product-create')
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
@@ -16,6 +16,7 @@
             </div>
         </div>
     </div>
+
 
 
     @if ($message = Session::get('success'))
@@ -60,5 +61,4 @@
     {!! $products->links() !!}
 
 
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
-@endsection
+  @endsection
