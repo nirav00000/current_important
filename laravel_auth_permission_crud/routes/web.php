@@ -16,6 +16,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
+use App\Http\Middleware\CheckName;
+
 
 
 
@@ -29,7 +31,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('products', ProductController::class);
 
-Route::post('date-range', [ProductController::class, 'searchRange'])->name('date-range');
+Route::post('date-range', [ProductController::class, 'searchRange'])->name('date-range')->middleware('CheckName');
 
 
 
